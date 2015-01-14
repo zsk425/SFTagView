@@ -114,6 +114,14 @@
     [self invalidateIntrinsicContentSize];
 }
 
+- (void)removeTag:(SKTagButton*)tagBtn{
+    [self.tags removeObject:tagBtn.mTag];
+    [tagBtn removeFromSuperview];
+
+    self.didSetup = NO;
+    [self invalidateIntrinsicContentSize];
+}
+
 #pragma mark - Private methods
 -(void)updateWrappingConstrains
 {
