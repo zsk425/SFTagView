@@ -16,5 +16,6 @@
 @property (nonatomic) BOOL singleLine;
 
 - (void)addTag:(SKTag *)tag;
+- (void)removeTag:(SKTag*)tag;
 @end
 

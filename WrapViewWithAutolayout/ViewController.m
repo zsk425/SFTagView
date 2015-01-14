@@ -64,6 +64,9 @@
 - (void)handleBtn:(UIButton *)btn
 {
     NSLog(@"%@", btn.titleLabel.text);
+
+    // remove tag on tap
+     [self.tagView removeTag:(SKTag*)btn];
 }
 
 #pragma mark - User interactions
