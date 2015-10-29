@@ -10,6 +10,7 @@
 #import "SKTagView.h"
 #import <Masonry/Masonry.h>
 #import <HexColors/HexColor.h>
+#import "SKTagScrollView.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) SKTagView *tagView;
@@ -37,6 +38,7 @@
         view.padding    = UIEdgeInsetsMake(12, 12, 12, 12);
         view.insets    = 15;
         view.lineSpace = 10;
+//        view.singleLine = YES;
         __weak SKTagView *weakView = view;
         view.didClickTagAtIndex = ^(NSUInteger index){
             //Remove tag
@@ -44,12 +46,20 @@
         };
         view;
     });
-    [self.view addSubview:self.tagView];
-    [self.tagView mas_makeConstraints:^(MASConstraintMaker *make) {
+    SKTagScrollView *scrollView = ({
+        
+        SKTagScrollView *view = [[SKTagScrollView alloc] initWithTagView:self.tagView];
+        view.backgroundColor = [UIColor greenColor];
+        view;
+    });
+    
+    [self.view addSubview:scrollView];
+    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         UIView *superView = self.view;
         make.centerY.equalTo(superView.mas_centerY).with.offset(0);
         make.leading.equalTo(superView.mas_leading).with.offset(0);
         make.trailing.equalTo(superView.mas_trailing);
+        make.height.equalTo(@99);
     }];
     
     //Add Tags

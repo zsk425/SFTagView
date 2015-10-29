@@ -16,6 +16,7 @@
 		682ABA7E1A36933300D57A1A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682ABA7C1A36933300D57A1A /* LaunchScreen.xib */; };
 		682ABA951A3693BC00D57A1A /* SKTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 682ABA941A3693BC00D57A1A /* SKTagView.m */; };
 		6AB277B71AE2A80700D92167 /* SKTagViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB277B61AE2A80700D92167 /* SKTagViewTests.m */; };
+		9CAE10AD1BE1DE12009FF1F9 /* SKTagScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE10AC1BE1DE12009FF1F9 /* SKTagScrollView.m */; settings = {ASSET_TAGS = (); }; };
 		D865CB921A6415B200F3592C /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D865CB911A6415B200F3592C /* TagsTableViewController.m */; };
 		D865CB951A64160500F3592C /* TagsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D865CB941A64160500F3592C /* TagsTableCell.m */; };
 		E198833B70106A7B969AF9D2 /* SKTag.m in Sources */ = {isa = PBXBuildFile; fileRef = E198883D944B29B6488A5B34 /* SKTag.m */; };
@@ -51,6 +52,8 @@
 		682ABA941A3693BC00D57A1A /* SKTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTagView.m; sourceTree = "<group>"; };
 		6AB277B61AE2A80700D92167 /* SKTagViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTagViewTests.m; sourceTree = "<group>"; };
 		6E4B93550F83909B378F1930 /* Pods-SKTagView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTagView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTagView/Pods-SKTagView.debug.xcconfig"; sourceTree = "<group>"; };
+		9CAE10AB1BE1DE12009FF1F9 /* SKTagScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTagScrollView.h; sourceTree = "<group>"; };
+		9CAE10AC1BE1DE12009FF1F9 /* SKTagScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTagScrollView.m; sourceTree = "<group>"; };
 		D865CB901A6415B200F3592C /* TagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableViewController.h; sourceTree = "<group>"; };
 		D865CB911A6415B200F3592C /* TagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsTableViewController.m; sourceTree = "<group>"; };
 		D865CB931A64160500F3592C /* TagsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableCell.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				E1988A206257CAF7FE6FC77A /* SKTag.h */,
 				E1988DC652E4B5A7DD3FC44D /* SKTagButton.m */,
 				E19884C2F2577114719748BD /* SKTagButton.h */,
+				9CAE10AB1BE1DE12009FF1F9 /* SKTagScrollView.h */,
+				9CAE10AC1BE1DE12009FF1F9 /* SKTagScrollView.m */,
 			);
 			name = SKTagView;
 			path = ../SKTagView;
@@ -189,6 +194,7 @@
 				682ABA671A36933300D57A1A /* Frameworks */,
 				682ABA681A36933300D57A1A /* Resources */,
 				FAE40ECF28B915D0419B9B28 /* Copy Pods Resources */,
+				99758CCE2F47DD6729C40624 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,6 +296,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		99758CCE2F47DD6729C40624 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKTagView/Pods-SKTagView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FAE40ECF28B915D0419B9B28 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,6 +340,7 @@
 				D865CB921A6415B200F3592C /* TagsTableViewController.m in Sources */,
 				682ABA701A36933300D57A1A /* main.m in Sources */,
 				E198833B70106A7B969AF9D2 /* SKTag.m in Sources */,
+				9CAE10AD1BE1DE12009FF1F9 /* SKTagScrollView.m in Sources */,
 				E1988E0CF76D59E86E94A7CC /* SKTagButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
