@@ -138,7 +138,7 @@
     //Install new constraints
     NSArray *subviews = self.subviews;
     UIView *previewsView = nil;
-    UIView *superView = self;
+    UIView __weak *superView = self;
     CGFloat leftOffset = self.padding.left;
     CGFloat bottomOffset = self.padding.bottom;
     CGFloat rightOffset = self.padding.right;
@@ -245,6 +245,15 @@
             
             previewsView = view;
         }
+    }
+    
+    for (UIView* view in self.subviews) {
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            SAVE_C(make.top.greaterThanOrEqualTo(superView));
+            SAVE_C(make.bottom.lessThanOrEqualTo(superView));
+        }];
     }
     
     self.didSetup = YES;
