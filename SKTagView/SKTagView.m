@@ -149,6 +149,8 @@
     
     if (!self.singleLine && self.preferredMaxLayoutWidth > 0)
     {
+        BOOL isMultiLine = NO;
+        UIView *firstView = nil;
         for (UIView *view in subviews)
         {
             [view mas_makeConstraints:^(MASConstraintMaker *make)
@@ -179,20 +181,41 @@
                         SAVE_C(make.leading.equalTo(superView.mas_leading).with.offset(leftOffset));
                     }];
                     currentX = leftOffset + size.width;
+                    isMultiLine = YES;
                 }
             }
             else
             {
+                firstView = view;
                 //first one
                 [view mas_makeConstraints:^(MASConstraintMaker *make)
                 {
-                    SAVE_C(make.top.equalTo(superView.mas_top).with.offset(topPadding));
                     SAVE_C(make.leading.equalTo(superView.mas_leading).with.offset(leftOffset));
                 }];
                 currentX += size.width;
             }
             
             previewsView = view;
+        }
+        
+        if (isMultiLine) {//prevent zoom previews view in sing line
+            
+            [previewsView mas_makeConstraints:^(MASConstraintMaker *make)
+             {
+                 SAVE_C(make.bottom.equalTo(superView.mas_bottom).with.offset(-bottomOffset));
+             }];
+            
+            [firstView mas_makeConstraints:^(MASConstraintMaker *make) {
+                
+                
+                SAVE_C(make.top.equalTo(superView.mas_top).with.offset(topPadding));
+            }];
+        }else{
+            
+            [firstView mas_makeConstraints:^(MASConstraintMaker *make) {
+               
+                SAVE_C(make.centerY.equalTo(superView).with.offset((topPadding - bottomOffset) / 2));
+            }];
         }
     }
     else
@@ -214,7 +237,7 @@
                 //first one
                 [view mas_makeConstraints:^(MASConstraintMaker *make)
                  {
-                     SAVE_C(make.top.equalTo(superView.mas_top).with.offset(topPadding));
+                     SAVE_C(make.centerY.equalTo(superView).with.offset((topPadding - bottomOffset) / 2));
                      SAVE_C(make.leading.equalTo(superView.mas_leading).with.offset(leftOffset));
                  }];
                 currentX += size.width;
@@ -223,11 +246,6 @@
             previewsView = view;
         }
     }
-    
-    [previewsView mas_makeConstraints:^(MASConstraintMaker *make)
-     {
-         SAVE_C(make.bottom.equalTo(superView.mas_bottom).with.offset(-bottomOffset));
-     }];
     
     self.didSetup = YES;
 }
