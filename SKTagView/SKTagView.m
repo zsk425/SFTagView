@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic, nullable) NSMutableArray *tags;
 @property (assign, nonatomic) BOOL didSetup;
+@property(nonatomic,assign)BOOL outOfBounds;
 
 @end
 
@@ -112,23 +113,38 @@
     CGFloat topPadding = self.padding.top;
     CGFloat leftPadding = self.padding.left;
     CGFloat rightPadding = self.padding.right;
+    CGFloat bottomPadding = self.padding.bottom;
     CGFloat itemSpacing = self.interitemSpacing;
     CGFloat lineSpacing = self.lineSpacing;
     CGFloat currentX = leftPadding;
     
     if (!self.singleLine && self.preferredMaxLayoutWidth > 0) {
+        if (self.outOfBounds) return;
         for (UIView *view in subviews) {
             CGSize size = view.intrinsicContentSize;
             if (previousView) {
                 CGFloat width = size.width;
                 currentX += itemSpacing;
                 if (currentX + width + rightPadding <= self.preferredMaxLayoutWidth) {
-                    view.frame = CGRectMake(currentX, CGRectGetMinY(previousView.frame), size.width, size.height);
-                    currentX += size.width;
+                    if (CGRectGetMaxY(previousView.frame) + lineSpacing < self.bounds.size.height - bottomPadding) {
+                        view.frame = CGRectMake(currentX, CGRectGetMinY(previousView.frame), size.width, size.height);
+                        currentX += size.width;
+                    }else{
+                        [view removeFromSuperview];
+                        self.outOfBounds = YES;
+                        break;
+                    }
+                    
                 } else {
                     CGFloat width = MIN(size.width, self.preferredMaxLayoutWidth - leftPadding - rightPadding);
-                    view.frame = CGRectMake(leftPadding, CGRectGetMaxY(previousView.frame) + lineSpacing, width, size.height);
-                    currentX = leftPadding + width;
+                    if (CGRectGetMaxY(previousView.frame) + lineSpacing < self.bounds.size.height - bottomPadding) {
+                        view.frame = CGRectMake(leftPadding, CGRectGetMaxY(previousView.frame) + lineSpacing, width, size.height);
+                        currentX = leftPadding + width;
+                    }else{
+                        [view removeFromSuperview];
+                        self.outOfBounds = YES;
+                        break;
+                    }
                 }
             } else {
                 CGFloat width = MIN(size.width, self.preferredMaxLayoutWidth - leftPadding - rightPadding);
@@ -144,10 +160,12 @@
             view.frame = CGRectMake(currentX, topPadding, size.width, size.height);
             currentX += size.width;
             currentX += itemSpacing;
-
+            
             previousView = view;
         }
     }
+    
+    NSLog(@"%@",NSStringFromCGRect(previousView.frame));
     
     self.didSetup = YES;
 }
@@ -155,6 +173,7 @@
 #pragma mark - IBActions
 
 - (void)onTag: (UIButton *)btn {
+    btn.selected = !btn.selected;
     if (self.didTapTagAtIndex) {
         self.didTapTagAtIndex([self.subviews indexOfObject: btn]);
     }
@@ -163,6 +182,9 @@
 #pragma mark - Public
 
 - (void)addTag: (SKTag *)tag {
+    if (self.outOfBounds) return;
+    
+    
     NSParameterAssert(tag);
     SKTagButton *btn = [SKTagButton buttonWithTag: tag];
     [btn addTarget: self action: @selector(onTag:) forControlEvents: UIControlEventTouchUpInside];
@@ -174,6 +196,7 @@
 }
 
 - (void)insertTag: (SKTag *)tag atIndex: (NSUInteger)index {
+    if(self.outOfBounds) return;
     NSParameterAssert(tag);
     if (index + 1 > self.tags.count) {
         [self addTag: tag];
@@ -198,6 +221,7 @@
     [self.tags removeObjectAtIndex: index];
     if (self.subviews.count > index) {
         [self.subviews[index] removeFromSuperview];
+        self.outOfBounds = NO;
     }
     
     self.didSetup = NO;
