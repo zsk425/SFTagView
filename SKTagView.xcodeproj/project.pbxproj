@@ -16,6 +16,7 @@
 		682ABA7E1A36933300D57A1A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682ABA7C1A36933300D57A1A /* LaunchScreen.xib */; };
 		682ABA951A3693BC00D57A1A /* SKTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 682ABA941A3693BC00D57A1A /* SKTagView.m */; };
 		6AB277B71AE2A80700D92167 /* SKTagViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB277B61AE2A80700D92167 /* SKTagViewTests.m */; };
+		944883204909CB391776DE99 /* libPods-SKTagViewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFB5CA76F6524399551F3CE /* libPods-SKTagViewTests.a */; };
 		D865CB921A6415B200F3592C /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D865CB911A6415B200F3592C /* TagsTableViewController.m */; };
 		D865CB951A64160500F3592C /* TagsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D865CB941A64160500F3592C /* TagsTableCell.m */; };
 		E198833B70106A7B969AF9D2 /* SKTag.m in Sources */ = {isa = PBXBuildFile; fileRef = E198883D944B29B6488A5B34 /* SKTag.m */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20E62B8314C13FC725E4FAB8 /* Pods-SKTagViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTagViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTagViewTests/Pods-SKTagViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		34A8B7A699E830DE1102943F /* Pods-SKTagView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTagView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTagView/Pods-SKTagView.release.xcconfig"; sourceTree = "<group>"; };
 		46328B9142A4A0B33379D3CE /* libPods-SKTagView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKTagView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		682ABA6A1A36933300D57A1A /* SKTagView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTagView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,8 @@
 		682ABA941A3693BC00D57A1A /* SKTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTagView.m; sourceTree = "<group>"; };
 		6AB277B61AE2A80700D92167 /* SKTagViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTagViewTests.m; sourceTree = "<group>"; };
 		6E4B93550F83909B378F1930 /* Pods-SKTagView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTagView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTagView/Pods-SKTagView.debug.xcconfig"; sourceTree = "<group>"; };
+		6FF27E53A8E95FE3DD0B1719 /* Pods-SKTagViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTagViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTagViewTests/Pods-SKTagViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7DFB5CA76F6524399551F3CE /* libPods-SKTagViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKTagViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D865CB901A6415B200F3592C /* TagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableViewController.h; sourceTree = "<group>"; };
 		D865CB911A6415B200F3592C /* TagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsTableViewController.m; sourceTree = "<group>"; };
 		D865CB931A64160500F3592C /* TagsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableCell.h; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944883204909CB391776DE99 /* libPods-SKTagViewTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +156,8 @@
 			children = (
 				6E4B93550F83909B378F1930 /* Pods-SKTagView.debug.xcconfig */,
 				34A8B7A699E830DE1102943F /* Pods-SKTagView.release.xcconfig */,
+				6FF27E53A8E95FE3DD0B1719 /* Pods-SKTagViewTests.debug.xcconfig */,
+				20E62B8314C13FC725E4FAB8 /* Pods-SKTagViewTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				46328B9142A4A0B33379D3CE /* libPods-SKTagView.a */,
+				7DFB5CA76F6524399551F3CE /* libPods-SKTagViewTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,12 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 682ABA8D1A36933300D57A1A /* Build configuration list for PBXNativeTarget "SKTagView" */;
 			buildPhases = (
-				56A572FD8CB365055FBC8C48 /* Check Pods Manifest.lock */,
+				56A572FD8CB365055FBC8C48 /* [CP] Check Pods Manifest.lock */,
 				682ABA661A36933300D57A1A /* Sources */,
 				682ABA671A36933300D57A1A /* Frameworks */,
 				682ABA681A36933300D57A1A /* Resources */,
-				FAE40ECF28B915D0419B9B28 /* Copy Pods Resources */,
-				7EED09FF7F430376584E2BA7 /* Embed Pods Frameworks */,
+				FAE40ECF28B915D0419B9B28 /* [CP] Copy Pods Resources */,
+				7EED09FF7F430376584E2BA7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,9 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 682ABA901A36933300D57A1A /* Build configuration list for PBXNativeTarget "SKTagViewTests" */;
 			buildPhases = (
+				7BABD1CEAC6509326929453B /* [CP] Check Pods Manifest.lock */,
 				682ABA7F1A36933300D57A1A /* Sources */,
 				682ABA801A36933300D57A1A /* Frameworks */,
 				682ABA811A36933300D57A1A /* Resources */,
+				67B35885D73B110006E705A4 /* [CP] Embed Pods Frameworks */,
+				E424987A6CE0A0E1A0DBF140 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,29 +287,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		56A572FD8CB365055FBC8C48 /* Check Pods Manifest.lock */ = {
+		56A572FD8CB365055FBC8C48 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7EED09FF7F430376584E2BA7 /* Embed Pods Frameworks */ = {
+		67B35885D73B110006E705A4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKTagViewTests/Pods-SKTagViewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BABD1CEAC6509326929453B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7EED09FF7F430376584E2BA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,14 +347,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKTagView/Pods-SKTagView-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FAE40ECF28B915D0419B9B28 /* Copy Pods Resources */ = {
+		E424987A6CE0A0E1A0DBF140 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKTagViewTests/Pods-SKTagViewTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAE40ECF28B915D0419B9B28 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +540,7 @@
 		};
 		682ABA911A36933300D57A1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FF27E53A8E95FE3DD0B1719 /* Pods-SKTagViewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -504,6 +561,7 @@
 		};
 		682ABA921A36933300D57A1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20E62B8314C13FC725E4FAB8 /* Pods-SKTagViewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
