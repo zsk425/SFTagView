@@ -74,7 +74,7 @@
 }
 
 - (void)layoutSubviews {
-    if (!self.singleLine) {
+    if (!self.singleLine && self.preferredMaxLayoutWidth <= 0) {
         self.preferredMaxLayoutWidth = self.frame.size.width;
     }
     
