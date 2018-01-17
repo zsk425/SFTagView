@@ -10,5 +10,6 @@
 @interface SKTagButton: UIButton
 
 + (nonnull instancetype)buttonWithTag: (nonnull SKTag *)tag;
-
++ (nonnull UIImage *)imageWithColor:(UIColor *)color;
++ (nonnull UIColor *)darkerColor:(UIColor *)color;
 @end

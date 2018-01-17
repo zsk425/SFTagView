@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SKTagView.h"
+#import "CustomTagButton.h"
 #import <Masonry/Masonry.h>
 #import <HexColors/HexColors.h>
 
@@ -24,12 +25,31 @@
     
     self.colors = @[@"#7ecef4", @"#84ccc9", @"#88abda", @"#7dc1dd", @"#b6b8de"];
     [self setupTagView];
+  
+  CustomTagButton *button = [CustomTagButton buttonWithType:UIButtonTypeCustom];
+  button.backgroundColor = [UIColor redColor];
+  [button setImage:[UIImage imageNamed:@"icon_delete"] forState:UIControlStateNormal];
+  [button setTitle:@"Islam" forState:UIControlStateNormal];
+  [button setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+  button.titleLabel.backgroundColor = [UIColor greenColor];
+  button.imageView.backgroundColor = [UIColor orangeColor];
+  [self.view addSubview:button];
+  [button mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.top.equalTo(self.view).offset(100);
+    make.left.equalTo(self.view).offset(100);
+  }];
+  
+  UIView *rulerView = [[UIView alloc] initWithFrame:CGRectMake(0, -5, 13.f, 40.f)];
+  rulerView.backgroundColor = [UIColor blackColor];
+  [button addSubview:rulerView];
+  
 }
 
 #pragma mark - Private
 - (void)setupTagView {
     self.tagView = ({
         SKTagView *view = [SKTagView new];
+        view.buttonClass = [CustomTagButton class];
         view.backgroundColor = [UIColor whiteColor];
         view.padding = UIEdgeInsetsMake(12, 12, 12, 12);
         view.interitemSpacing = 15;
@@ -55,7 +75,8 @@
         tag.fontSize = 15;
         //tag.font = [UIFont fontWithName:@"Courier" size:15];
         //tag.enable = NO;
-        tag.padding = UIEdgeInsetsMake(13.5, 12.5, 13.5, 12.5);
+      tag.image = [UIImage imageNamed:@"icon_delete"];
+//        tag.padding = UIEdgeInsetsMake(13.5, 12.5, 13.5, 12.5);
         tag.bgColor = [UIColor hx_colorWithHexString: self.colors[idx % self.colors.count]];
         tag.cornerRadius = 5;
         [self.tagView addTag:tag];

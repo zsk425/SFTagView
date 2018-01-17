@@ -9,6 +9,7 @@
 @interface SKTag : NSObject
 
 @property (copy, nonatomic, nullable) NSString *text;
+@property (strong, nonatomic, nullable) UIImage *image;
 @property (copy, nonatomic, nullable) NSAttributedString *attributedText;
 @property (strong, nonatomic, nullable) UIColor *textColor;
 ///backgound color

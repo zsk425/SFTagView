@@ -164,7 +164,12 @@
 
 - (void)addTag: (SKTag *)tag {
     NSParameterAssert(tag);
-    SKTagButton *btn = [SKTagButton buttonWithTag: tag];
+  SKTagButton *btn = nil;
+  if (self.buttonClass) {
+    btn = [self.buttonClass buttonWithTag: tag];
+  } else {
+    btn = [SKTagButton buttonWithTag: tag];
+  }
     [btn addTarget: self action: @selector(onTag:) forControlEvents: UIControlEventTouchUpInside];
     [self addSubview: btn];
     [self.tags addObject: tag];
@@ -178,7 +183,12 @@
     if (index + 1 > self.tags.count) {
         [self addTag: tag];
     } else {
-        SKTagButton *btn = [SKTagButton buttonWithTag: tag];
+      SKTagButton *btn = nil;
+      if (self.buttonClass) {
+        btn = [self.buttonClass buttonWithTag: tag];
+      } else {
+        btn = [SKTagButton buttonWithTag: tag];
+      }
         [btn addTarget: self action: @selector(onTag:) forControlEvents: UIControlEventTouchUpInside];
         [self insertSubview: btn atIndex: index];
         [self.tags insertObject: tag atIndex: index];
