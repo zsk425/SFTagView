@@ -49,7 +49,7 @@
 - (void)setupTagView {
     self.tagView = ({
         SKTagView *view = [SKTagView new];
-      view.buttonClass = [CustomTagButton class];
+        view.buttonClass = [CustomTagButton class];
         view.backgroundColor = [UIColor whiteColor];
         view.padding = UIEdgeInsetsMake(12, 12, 12, 12);
         view.interitemSpacing = 15;
